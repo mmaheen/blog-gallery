@@ -11,9 +11,11 @@ class SiteController extends Controller
 {
     //
     public function index(){
-        $categories = Category::select('image','id')->get();
+        $categories = Category::select('id','image')->get();
+        $random_categories = Category::inRandomOrder()->select('id','title')->take(10)->get();
+        // return $random_categories;
         $photos = Photo::all();
-        return view ('frontend.index',compact('categories','photos'));
+        return view ('frontend.index',compact('categories','photos','random_categories'));
     }
 
     public function blog(){
