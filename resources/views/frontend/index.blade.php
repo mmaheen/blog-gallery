@@ -190,6 +190,10 @@
               </div><!-- End Portfolio Item -->
             @endforeach
 
+            <div>
+              {{$photos->links()}}
+            </div>
+
           </div><!-- End Portfolio Container -->
 
         </div>

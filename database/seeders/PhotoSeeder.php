@@ -25,7 +25,7 @@ class PhotoSeeder extends Seeder
         File::cleanDirectory($destination_path);
         File::copyDirectory($source_path,$destination_path);
 
-        foreach(range(1,40) as $index){
+        foreach(range(1,80) as $index){
             $photos = File::files($destination_path);
             $random_photo = $photos[array_rand($photos)];
             $photo_name = $random_photo->getFileName();

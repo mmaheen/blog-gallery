@@ -14,7 +14,7 @@ class SiteController extends Controller
         $categories = Category::select('id','image')->get();
         $random_categories = Category::inRandomOrder()->select('id','title')->take(10)->get();
         // return $random_categories;
-        $photos = Photo::all();
+        $photos = Photo::latest()->paginate(15);
         return view ('frontend.index',compact('categories','photos','random_categories'));
     }
 
