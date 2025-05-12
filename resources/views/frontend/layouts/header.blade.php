@@ -12,7 +12,7 @@
           <li><a href="#hero">Home</a></li>
           <li><a href="#category">Category</a></li>
           <li><a href="#skills">Skills</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#photo">Photo</a></li>
           <li><a href="#team">Team</a></li>
           <li><a href="{{ route('blog') }}" class="active">Blog</a></li>
           <li class="dropdown"><a href="#"><span>Authentication</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
