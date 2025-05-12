@@ -178,15 +178,17 @@
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="{{ asset('assets/frontend') }}/assets/img/portfolio/portfolio-portrait-1.webp" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="{{ asset('assets/frontend') }}/assets/img/portfolio/portfolio-portrait-1.webp" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
+            @foreach($photos as $photo)
+              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                <img src="{{ asset('uploads/photos') }}/{{ $photo->image }}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>App 1</h4>
+                  <p>Lorem ipsum, dolor sit</p>
+                  <a href="{{ asset('assets/frontend') }}/assets/img/portfolio/portfolio-portrait-1.webp" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div><!-- End Portfolio Item -->
+            @endforeach
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
               <img src="{{ asset('assets/frontend') }}/assets/img/portfolio/portfolio-1.webp" class="img-fluid" alt="">

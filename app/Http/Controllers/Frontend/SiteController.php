@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Photo;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,7 +12,8 @@ class SiteController extends Controller
     //
     public function index(){
         $categories = Category::select('image','id')->get();
-        return view ('frontend.index',compact('categories'));
+        $photos = Photo::all();
+        return view ('frontend.index',compact('categories','photos'));
     }
 
     public function blog(){
