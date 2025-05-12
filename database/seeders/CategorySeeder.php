@@ -18,7 +18,7 @@ class CategorySeeder extends Seeder
         //
         $faker = Factory::create();
 
-        $source_path = public_path('assets/frontend/assets/img');
+        $source_path = public_path('assets/frontend/assets/img/clients');
         $destination_path = public_path('uploads/categories');
 
         File::cleanDirectory($destination_path);

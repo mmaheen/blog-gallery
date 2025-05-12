@@ -66,14 +66,9 @@
             }
           </script>
           <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="{{ asset('assets/frontend') }}/assets/img/clients/clients-1.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{ asset('assets/frontend') }}/assets/img/clients/clients-2.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{ asset('assets/frontend') }}/assets/img/clients/clients-3.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{ asset('assets/frontend') }}/assets/img/clients/clients-4.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{ asset('assets/frontend') }}/assets/img/clients/clients-5.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{ asset('assets/frontend') }}/assets/img/clients/clients-6.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{ asset('assets/frontend') }}/assets/img/clients/clients-7.webp" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{ asset('assets/frontend') }}/assets/img/clients/clients-8.webp" class="img-fluid" alt=""></div>
+            @foreach($categories as $category)
+              <div class="swiper-slide"><img src="{{ asset('uploads/categories') }}/{{ $category->image }}" class="img-fluid" alt=""></div>
+            @endforeach
           </div>
         </div>
 
