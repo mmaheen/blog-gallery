@@ -67,7 +67,9 @@
           </script>
           <div class="swiper-wrapper align-items-center">
             @foreach($categories as $category)
-              <div class="swiper-slide"><img src="{{ asset('uploads/categories') }}/{{ $category->image }}" class="img-fluid" alt=""></div>
+              <a class="swiper-slide" href="">
+                <img src="{{ asset('uploads/categories') }}/{{ $category->image }}" class="img-fluid" alt="">
+              </a>
             @endforeach
           </div>
         </div>
