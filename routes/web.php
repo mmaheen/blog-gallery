@@ -8,3 +8,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [SiteController::class, 'index'])->name('index');
 Route::get('/blog', [SiteController::class, 'blog'])->name('blog');
+Route::get('/blog/details', [SiteController::class, 'blogDetails'])->name('blog.details');

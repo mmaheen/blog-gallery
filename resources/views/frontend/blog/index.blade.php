@@ -34,7 +34,7 @@
                     </div>
 
                     <h2 class="title">
-                      <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</a>
+                      <a href="{{ route('blog.details') }}">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</a>
                     </h2>
 
                     <div class="meta-top">
