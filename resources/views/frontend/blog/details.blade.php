@@ -28,27 +28,27 @@
                 <img src="{{ asset('uploads/blogs') }}/{{$blog->image}}" alt="Featured blog image" class="img-fluid" loading="lazy">
                 <div class="meta-overlay">
                 <div class="meta-categories">
-                    <a href="#" class="category">{{$}}</a>
+                    <a href="#" class="category">{{$blog->category->title}}</a>
                     <span class="divider">•</span>
-                    <span class="reading-time"><i class="bi bi-clock"></i> 6 min read</span>
+                    <span class="reading-time"><i class="bi bi-clock"></i>{{$blog->created_at->diffForHumans()}}</span>
                 </div>
                 </div>
             </div>
 
             <div class="article-content" data-aos="fade-up" data-aos-delay="100">
                 <div class="content-header">
-                <h1 class="title">Modern Web Development: Best Practices and Future Trends for 2025</h1>
+                <h1 class="title">{{$blog->title}}</h1>
 
                 <div class="author-info">
                     <div class="author-details">
                     <img src="{{ asset('assets/frontend') }}/assets/img/person/person-f-8.webp" alt="Author" class="author-img">
                     <div class="info">
-                        <h4>Michael Chen</h4>
+                        <h4>{{$blog->user->name}}</h4>
                         <span class="role">Senior Web Developer</span>
                     </div>
                     </div>
                     <div class="post-meta">
-                    <span class="date"><i class="bi bi-calendar3"></i> Mar 15, 2025</span>
+                    <span class="date"><i class="bi bi-calendar3"></i> {{date('F j, Y',strtotime($blog->created_at))}}</span>
                     <span class="divider">•</span>
                     <span class="comments"><i class="bi bi-chat-text"></i> 18 Comments</span>
                     </div>
@@ -61,7 +61,7 @@
                 </p>
 
                 <p>
-                    As we delve into 2025, the web development ecosystem has transformed dramatically, introducing innovative approaches to building faster, more secure, and highly engaging web experiences. This comprehensive guide explores the latest trends and best practices that are defining the future of web development.
+                    {{$blog->description}}
                 </p>
 
                 <div class="content-image right-aligned">

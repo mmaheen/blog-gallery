@@ -50,7 +50,7 @@
                       <p>
                         {{substr($blog->description, 0 , 150)}}
                         @if(strlen($blog->description)>150)
-                          <a href="">...</a>
+                          <a href="{{ route('blog.details', $blog->id) }}">...</a>
                         @endif
                       </p>
 
@@ -128,39 +128,6 @@
 
                 </div><!-- End post list item -->
 
-                <div class="col-lg-6">
-
-                  <article>
-
-                    <div class="post-img">
-                      <img src="{{ asset('assets/frontend') }}/assets/img/blog/blog-post-4.webp" alt="" class="img-fluid">
-                    </div>
-
-                    <h2 class="title">
-                      <a href="blog-details.html">Non rem rerum nam cum quo minus. Dolor distinctio deleniti explicabo eius exercitationem.</a>
-                    </h2>
-
-                    <div class="meta-top">
-                      <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="content">
-                      <p>
-                        Aspernatur rerum perferendis et sint. Voluptates cupiditate voluptas atque quae. Rem veritatis rerum enim et autem. Saepe atque cum eligendi eaque iste omnis a qui.
-                        Quia sed sunt. Ea asperiores expedita <br></p>
-                      <div class="read-more">
-                        <a href="blog-details.html">Read More</a>
-                      </div>
-                    </div>
-
-                  </article>
-
-                </div><!-- End post list item -->
-
               </div><!-- End blog posts list -->
 
             </div>
@@ -211,45 +178,20 @@
 
               <h3 class="widget-title">Recent Posts</h3>
 
-              <div class="post-item">
-                <img src="{{ asset('assets/frontend') }}/assets/img/blog/blog-post-square-1.webp" alt="" class="flex-shrink-0">
-                <div>
-                  <h4><a href="blog-details.html">Nihil blanditiis at in nihil autem</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-              </div><!-- End recent post item-->
-
-              <div class="post-item">
-                <img src="{{ asset('assets/frontend') }}/assets/img/blog/blog-post-square-2.webp" alt="" class="flex-shrink-0">
-                <div>
-                  <h4><a href="blog-details.html">Quidem autem et impedit</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-              </div><!-- End recent post item-->
-
-              <div class="post-item">
-                <img src="{{ asset('assets/frontend') }}/assets/img/blog/blog-post-square-3.webp" alt="" class="flex-shrink-0">
-                <div>
-                  <h4><a href="blog-details.html">Id quia et et ut maxime similique occaecati ut</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-              </div><!-- End recent post item-->
-
-              <div class="post-item">
-                <img src="{{ asset('assets/frontend') }}/assets/img/blog/blog-post-square-4.webp" alt="" class="flex-shrink-0">
-                <div>
-                  <h4><a href="blog-details.html">Laborum corporis quo dara net para</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-              </div><!-- End recent post item-->
-
-              <div class="post-item">
-                <img src="{{ asset('assets/frontend') }}/assets/img/blog/blog-post-square-5.webp" alt="" class="flex-shrink-0">
-                <div>
-                  <h4><a href="blog-details.html">Et dolores corrupti quae illo quod dolor</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-              </div><!-- End recent post item-->
+              @foreach($recent_blogs as $blog)
+                <div class="post-item">
+                  <img src="{{ asset('uploads/blogs') }}/{{$blog->image}}" alt="" class="flex-shrink-0">
+                  <div>
+                    <h4>
+                      <a href="{{ route('blog.details',$blog->id) }}">{{substr($blog->title, 0 , 60)}}</a>
+                      @if(strlen($blog->title)>50)
+                        ...
+                      @endif
+                    </h4>
+                    <time datetime="2020-01-01">{{date('F j, Y',strtotime($blog->created_at))}}</time>
+                  </div>
+                </div><!-- End recent post item-->
+              @endforeach
 
             </div><!--/Recent Posts Widget -->
 
@@ -258,12 +200,9 @@
 
               <h3 class="widget-title">Categories</h3>
               <ul class="mt-3">
-                <li><a href="#">General <span>(25)</span></a></li>
-                <li><a href="#">Lifestyle <span>(12)</span></a></li>
-                <li><a href="#">Travel <span>(5)</span></a></li>
-                <li><a href="#">Design <span>(22)</span></a></li>
-                <li><a href="#">Creative <span>(8)</span></a></li>
-                <li><a href="#">Educaion <span>(14)</span></a></li>
+                @foreach($categories as $category)
+                  <li><a href="#">{{$category->title}} <span>({{$category->blog()->count()}})</span></a></li>
+                @endforeach
               </ul>
 
             </div><!--/Categories Widget -->

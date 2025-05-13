@@ -20,8 +20,10 @@ class SiteController extends Controller
     }
 
     public function blog(){
-        $blogs = Blog::latest()->paginate(6);
-        return view ('frontend.blog.index',compact('blogs'));
+        $categories = Category::select('id','title')->inRandomOrder()->take(10)->get();
+        $blogs = Blog::inRandomOrder()->paginate(6);
+        $recent_blogs = Blog::latest()->take(10)->get();
+        return view ('frontend.blog.index',compact('blogs','categories','recent_blogs'));
     }
 
     public function blogDetails(string $id){
