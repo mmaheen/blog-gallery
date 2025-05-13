@@ -36,6 +36,7 @@ class PhotoSeeder extends Seeder
 
             Photo::create([
                 'title' => $faker->sentence(5),
+                'description'=>$faker->realText($maxNbChars = 450, $indexSize = 2),
                 'image' => $photo_name,
                 'category_id' => $random_category_id,
                 'user_id' => $random_user_id,

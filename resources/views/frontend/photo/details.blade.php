@@ -79,7 +79,7 @@
             <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
               <h2>{{ $photo->title }}</h2>
               <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                {{ $photo->description }}
               </p>
             </div>
           </div>
