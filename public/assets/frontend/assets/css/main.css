@@ -2079,6 +2079,10 @@ section,
     transition: 0.3s;
 }
 
+.post-img {
+    aspect-ratio: 512 / 341;
+}
+
 .recent-blog-postst .post-item .post-img img {
     transition: 0.5s;
 }

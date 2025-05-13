@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Blog;
 use App\Models\Photo;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -19,7 +20,8 @@ class SiteController extends Controller
     }
 
     public function blog(){
-        return view ('frontend.blog.index');
+        $blogs = Blog::all();
+        return view ('frontend.blog.index',compact('blogs'));
     }
 
     public function blogDetails(){
