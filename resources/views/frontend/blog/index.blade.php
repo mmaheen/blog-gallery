@@ -137,7 +137,7 @@
           <!-- Pagination 2 Section -->
           <section id="pagination-2" class="pagination-2 section">
             <div>
-              {{$blogs->links()}}
+              {{$blogs->links('pagination::bootstrap-4')}}
             </div>
             <div class="container">
               <div class="d-flex justify-content-center">
