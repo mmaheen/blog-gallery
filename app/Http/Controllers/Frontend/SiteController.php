@@ -20,11 +20,12 @@ class SiteController extends Controller
     }
 
     public function blog(){
-        $blogs = Blog::all();
+        $blogs = Blog::latest()->paginate(6);
         return view ('frontend.blog.index',compact('blogs'));
     }
 
-    public function blogDetails(){
-        return view ('frontend.blog.details');
+    public function blogDetails(string $id){
+        $blog = Blog::find($id);
+        return view ('frontend.blog.details',compact('blog'));
     }
 }

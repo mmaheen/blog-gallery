@@ -25,10 +25,10 @@
             <article class="article">
 
             <div class="hero-img" data-aos="zoom-in">
-                <img src="{{ asset('assets/frontend') }}/assets/img/blog/blog-post-3.webp" alt="Featured blog image" class="img-fluid" loading="lazy">
+                <img src="{{ asset('uploads/blogs') }}/{{$blog->image}}" alt="Featured blog image" class="img-fluid" loading="lazy">
                 <div class="meta-overlay">
                 <div class="meta-categories">
-                    <a href="#" class="category">Web Development</a>
+                    <a href="#" class="category">{{$}}</a>
                     <span class="divider">•</span>
                     <span class="reading-time"><i class="bi bi-clock"></i> 6 min read</span>
                 </div>

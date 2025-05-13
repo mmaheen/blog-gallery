@@ -35,7 +35,7 @@
                     </div>
 
                     <h2 class="title">
-                      <a href="{{ route('blog.details') }}">{{substr( $blog->title, 0 , 75 )}}</a>
+                      <a href="{{ route('blog.details', $blog->id) }}">{{substr( $blog->title, 0 , 75 )}}</a>
                     </h2>
 
                     <div class="meta-top">
@@ -49,10 +49,13 @@
                     <div class="content">
                       <p>
                         {{substr($blog->description, 0 , 150)}}
+                        @if(strlen($blog->description)>150)
+                          <a href="">...</a>
+                        @endif
                       </p>
 
                       <div class="read-more">
-                        <a href="blog-details.html">Read More</a>
+                        <a href="{{ route('blog.details', $blog->id) }}">Read More</a>
                       </div>
                     </div>
 
@@ -166,7 +169,9 @@
 
           <!-- Pagination 2 Section -->
           <section id="pagination-2" class="pagination-2 section">
-
+            <div>
+              {{$blogs->links()}}
+            </div>
             <div class="container">
               <div class="d-flex justify-content-center">
                 <ul>
