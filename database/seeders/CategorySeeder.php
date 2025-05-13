@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Faker\Factory;
+use App\Models\User;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
@@ -29,10 +30,12 @@ class CategorySeeder extends Seeder
             $random_photo = $photos[array_rand($photos)];
             $photo_name = $random_photo->getFileName();
 
+            $random_user_id = User::inRandomOrder()->first()->id;
+
             Category::create([
                 'title' => $faker->realText($maxNbChars=10,$indexSize=2),
                 'image' => $photo_name,
-                'user_id' => 1,
+                'user_id' => $random_user_id,
                 'created_at' =>$faker->dateTime()
             ]);
         }

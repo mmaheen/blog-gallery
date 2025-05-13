@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Faker\Factory;
 use App\Models\Blog;
+use App\Models\User;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
@@ -31,12 +32,13 @@ class BlogSeeder extends Seeder
             $photo_name = $random_photo->getFileName();
 
             $random_category = Category::inRandomOrder()->first()->id;
+            $random_user_id = User::inRandomOrder()->first()->id;
 
             Blog::create([
                 'title' => $faker->realText($maxNbChars = 100, $indexSize = 2),
                 'description'=>$faker->realText($maxNbChars = 10000, $indexSize = 2),
                 'image' => $photo_name,
-                'user_id' => 1,
+                'user_id' => $random_user_id,
                 'category_id' => $random_category,
                 'created_at' => $faker->dateTime()
             ]);
