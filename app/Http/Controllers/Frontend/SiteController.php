@@ -30,4 +30,10 @@ class SiteController extends Controller
         $blog = Blog::find($id);
         return view ('frontend.blog.details',compact('blog'));
     }
+
+    public function photoDetails($id){
+        // return $id;
+        $photo = Photo::find($id);
+        return view ('frontend.photo.details',compact('photo'));
+    }
 }
