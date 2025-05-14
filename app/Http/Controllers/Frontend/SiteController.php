@@ -21,8 +21,9 @@ class SiteController extends Controller
         // return $random_categories;
         $photos = Photo::latest()->paginate(15);
         $testimonials = Testimonial::inRandomOrder()->take(5)->get();
+        $blogs = Blog::latest()->take(6)->get();
         $faker = Factory::create();
-        return view ('frontend.index',compact('categories','photos','random_categories','users','testimonials','faker'));
+        return view ('frontend.index',compact('categories','photos','random_categories','users','testimonials','blogs','faker'));
     }
 
     public function blog(){
