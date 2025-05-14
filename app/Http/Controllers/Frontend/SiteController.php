@@ -6,6 +6,7 @@ use Faker\Factory;
 use App\Models\Blog;
 use App\Models\User;
 use App\Models\Photo;
+use App\Models\Skill;
 use App\Models\Category;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
@@ -18,12 +19,12 @@ class SiteController extends Controller
         $categories = Category::select('id','image')->get();
         $random_categories = Category::inRandomOrder()->select('id','title')->take(10)->get();
         $users = User::select('name','id','image','role')->inRandomOrder()->take(4)->get();
-        // return $random_categories;
         $photos = Photo::latest()->paginate(15);
         $testimonials = Testimonial::inRandomOrder()->take(5)->get();
         $blogs = Blog::latest()->take(6)->get();
+        $skills = Skill::all();
         $faker = Factory::create();
-        return view ('frontend.index',compact('categories','photos','random_categories','users','testimonials','blogs','faker'));
+        return view ('frontend.index',compact('categories','photos','random_categories','users','testimonials','blogs','skills','faker'));
     }
 
     public function blog(){
