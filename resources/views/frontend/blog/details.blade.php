@@ -1,4 +1,9 @@
 @extends('frontend.layouts.layout')
+
+@section('title')
+    Blog Details
+@endsection
+
 @section('content')
     <!-- Page Title -->
 <div class="page-title" data-aos="fade">

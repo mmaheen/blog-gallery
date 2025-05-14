@@ -1,6 +1,7 @@
 @extends('frontend.layouts.layout')
 
 @section('title')
+  Photo Details
 @endsection
 
 @section('content')
@@ -10,10 +11,10 @@
         <nav class="breadcrumbs">
           <ol>
             <li><a href="{{ route('index') }}">Home</a></li>
-            <li class="current">Portfolio Details</li>
+            <li class="current">Photo Details</li>
           </ol>
         </nav>
-        <h1>Portfolio Details</h1>
+        <h1>Photo Details</h1>
       </div>
     </div><!-- End Page Title -->
 

@@ -1,5 +1,9 @@
 @extends('frontend.layouts.layout')
 
+@section('title')
+  Home
+@endsection
+
 @section('content')
         <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
