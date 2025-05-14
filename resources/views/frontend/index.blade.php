@@ -381,7 +381,8 @@
           </div>
 
           <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            <form action="{{route('contact')}}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              @csrf
               <div class="row gy-4">
 
                 <div class="col-md-6">

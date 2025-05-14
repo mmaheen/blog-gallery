@@ -44,4 +44,8 @@ class SiteController extends Controller
         $photo = Photo::find($id);
         return view ('frontend.photo.details',compact('photo'));
     }
+
+    public function contact(Request $request){
+        return $request->email;
+    }
 }
