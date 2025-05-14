@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
+            $table->unSignedBigInteger('user_id');
+            $table->integer('rating')->check('rating BETWEEN 1 AND 5');
+            $table->longText('review');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
         });
     }
 

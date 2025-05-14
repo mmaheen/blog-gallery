@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\User;
 use App\Models\Photo;
 use App\Models\Category;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,8 +20,9 @@ class SiteController extends Controller
         $users = User::select('name','id','image','role')->inRandomOrder()->take(4)->get();
         // return $random_categories;
         $photos = Photo::latest()->paginate(15);
+        $testimonials = Testimonial::inRandomOrder()->take(5)->get();
         $faker = Factory::create();
-        return view ('frontend.index',compact('categories','photos','random_categories','users','faker'));
+        return view ('frontend.index',compact('categories','photos','random_categories','users','testimonials','faker'));
     }
 
     public function blog(){
