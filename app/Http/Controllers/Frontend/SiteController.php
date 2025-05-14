@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Frontend;
 use Faker\Factory;
 use App\Models\Blog;
 use App\Models\User;
+use App\Mail\Contact;
 use App\Models\Photo;
 use App\Models\Skill;
 use App\Models\Category;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class SiteController extends Controller
 {
@@ -46,6 +48,11 @@ class SiteController extends Controller
     }
 
     public function contact(Request $request){
-        return $request->email;
+        $name = $request->name;
+        $to = $request->email;
+        $subject = $request->subject;
+        $email_content = $request->message;
+        Mail::to($to)->send(new Contact($name,$subject,$email_content));
+        return redirect()->back();
     }
 }
