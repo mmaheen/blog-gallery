@@ -24,10 +24,13 @@ class UserSeeder extends Seeder
         File::cleanDirectory($destination_path);
         File::copyDirectory($source_path,$destination_path);
 
+        $role = ['admin','user'];
+
         User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => '0',
+            'role' => 'admin',
             'image' => 'person-f-8.webp'
         ]);
 
@@ -35,6 +38,7 @@ class UserSeeder extends Seeder
             'name' => 'User',
             'email' => 'user@gmail.com',
             'password' => '0',
+            'role' => 'user',
             'image' => 'person-m-7.webp'
         ]);
 
@@ -47,6 +51,7 @@ class UserSeeder extends Seeder
                 'name' => $faker->name,
                 'email' => $faker->email,
                 'password' => $faker->password,
+                'role' => $role[array_rand($role)],
                 'image' => $photo_name,
             ]);
         }
