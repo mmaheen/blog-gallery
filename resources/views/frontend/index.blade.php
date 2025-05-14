@@ -208,7 +208,12 @@
 
                 <div class="post-content d-flex flex-column">
 
-                  <h3 class="post-title">{{substr($blog->title , 0, 65)}}</h3>
+                  <h3 class="post-title">
+                    {{substr($blog->title , 0, 65)}}
+                    @if(strlen($blog->title)>65)
+                    ...
+                    @endif
+                  </h3>
 
                   <div class="meta d-flex align-items-center">
                     <div class="d-flex align-items-center">
